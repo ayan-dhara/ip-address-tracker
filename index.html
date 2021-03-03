@@ -16,9 +16,6 @@
             padding: 0;
             margin: 0;
         }
-        .header, .footer{
-            display: none;
-        }
         #map{
             height: 100vh;
             width: 100vw;
@@ -28,10 +25,12 @@
         function setMap(query){
             if(!query)
                 query = "";
-            fetch("https://ip-details.herokuapp.com/" + query).then((r) => {
-                r.json().then((l) => {
-                    let latitude = l.lat;
-                    let longitude = l.lon;
+            else
+                query = "?query=" + query;
+            fetch("https://ip-details.herokuapp.com/" + query).then((response) => {
+                response.json().then((details) => {
+                    let latitude = details.lat;
+                    let longitude = details.lon;
                     let map = L.map('map').setView([latitude, longitude], 5);
                     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
