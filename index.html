@@ -28,7 +28,7 @@
         function setMap(query){
             if(!query)
                 query = "";
-            fetch("http://ip-api.com/json/" + query).then((r) => {
+            fetch("https://ip-details.herokuapp.com/" + query).then((r) => {
                 r.json().then((l) => {
                     let latitude = l.lat;
                     let longitude = l.lon;
