@@ -23,7 +23,7 @@ function setMap(query) {
       document.getElementById("timezone").innerText = details.timezone;
       document.getElementById("location").innerText = details.city + ", " + details.regionName + ", " +
         details.country;
-      document.getElementById("isp").innerText = details.isp + ", " + details.org;
+      document.getElementById("isp").innerText = details.org;
 
       //------------------------------------
       let latitude = details.lat;

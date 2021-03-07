@@ -157,7 +157,7 @@ section.address .container1 .content p{
 }
 #map {
     z-index: 1;
-    height: 530px;
+    height: calc(100vh - 216px);
     width: 100%;
 }
 .contributions{
