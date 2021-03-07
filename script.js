@@ -18,14 +18,11 @@ function setMap(query) {
     query = "?query=" + query;
   fetch("https://ip-details.herokuapp.com/" + query).then((response) => {
     response.json().then((details) => {
-      //------------------------------------
       document.getElementById("ip-address").innerText = details.query;
       document.getElementById("timezone").innerText = details.timezone;
       document.getElementById("location").innerText = details.city + ", " + details.regionName + ", " +
         details.country;
       document.getElementById("isp").innerText = details.org;
-
-      //------------------------------------
       let latitude = details.lat;
       let longitude = details.lon;
       if(!map){
