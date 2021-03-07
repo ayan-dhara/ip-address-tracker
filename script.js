@@ -3,6 +3,13 @@ var myIcon = L.icon({
   iconAnchor: [22, 94]
 });
 
+function giveIP(){
+  var userinput = document.getElementById("userinput");
+  setMap(userinput.value);
+  return false;
+}
+
+var map = null;
 
 function setMap(query) {
   if (!query)
@@ -21,20 +28,22 @@ function setMap(query) {
       //------------------------------------
       let latitude = details.lat;
       let longitude = details.lon;
-      let map = L.map('map').setView([latitude, longitude], 12);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      }).addTo(map);
+      if(!map){
+        map = L.map('map').setView([latitude, longitude], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+      }
+      else{
+        map.setView([latitude, longitude], 12);
+      }
 
       L.marker([latitude, longitude], {
           icon: myIcon
         }).addTo(map)
         .openPopup();
-
     })
   });
 }
-
-
 
 setMap();
