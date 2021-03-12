@@ -30,15 +30,15 @@ function setMap(query) {
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
+
       }
       else{
         map.setView([latitude, longitude], 12);
+        map.removeLayer(marker);
       }
-
-      L.marker([latitude, longitude], {
+      marker = L.marker([latitude, longitude], {
           icon: myIcon
-        }).addTo(map)
-        .openPopup();
+      }).addTo(map);
     })
   });
 }
