@@ -77,8 +77,9 @@ section.address .container1{
 }
 section.address .container1 .content{
     padding: 30px;
-    display:flex;
-    flex-wrap: wrap; 
+    display: flex;
+    flex-direction: column;
+     
 }
 section.address .container1 .content h6{
     color: var(--DarkGray);
