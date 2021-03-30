@@ -78,8 +78,7 @@ section.address .container1{
 section.address .container1 .content{
     padding: 30px;
     display:flex;
-    flex-wrap: wrap;
-    flex: 1;
+    flex-wrap: wrap; 
 }
 section.address .container1 .content h6{
     color: var(--DarkGray);
